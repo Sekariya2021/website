@@ -1,23 +1,46 @@
-<?php      
-        include('database.php');  
-        $username = $_POST['user'];  
-        $password = $_POST['pass'];  
-          
-            //to prevent from mysqli injection  
-            $username = stripcslashes($username);  
-            $password = stripcslashes($password);  
-            $username = mysqli_real_escape_string($conn, $username);  
-            $password = mysqli_real_escape_string($conn, $password);  
-          
-            $sql = "select * from users where username = '$username' and password = '$password'";  
-            $result = mysqli_query($conn, $sql);  
-            $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
-            $count = mysqli_num_rows($result);  
-              
-            if($count == 1){  
-                header("location: dashboard.php");
-            }  
-            else{  
-                echo "<h1> Login failed. Invalid username or password.</h1>";  
-            }     
-?>  
+
+<?php
+    // connect to database
+    $server = "reservatiesdb.mysql.database.azure.com";
+    $username = "sekariya";
+    $password = "Prullenbak123";
+    $database = "fonteyn";
+
+    // Create connection
+    $conn = new mysqli($server, $username, $password, $database);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // escape variables for security
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
+
+    // check if username exists
+    $sql_check = "SELECT username FROM users WHERE username='$username'";
+    $result = mysqli_query($conn, $sql_check);
+    if (mysqli_num_rows($result) == 0) {
+        echo "This username does not exist. Please try again";
+    } else {
+        // get hashed password from database
+        $sql_check = "SELECT password FROM users WHERE username='$username'";
+        $result = mysqli_query($conn, $sql_check);
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $hashed_password = $row["password"];
+            }
+        }
+        // check if password is correct
+        if (password_verify($password, $hashed_password)) {
+            echo "Login successful";
+            header("Location: dashboard.php");
+        } else {
+            echo "Password incorrect. Please try again";
+        }
+    }
+
+    // close connection
+    mysqli_close($conn);
+?>

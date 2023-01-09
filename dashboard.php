@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,6 +36,7 @@
           <th>Email</th>
           <th>Amount</th>
           <th>Time</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -54,6 +54,7 @@
             <td><?php echo $row['email']; ?></td>
             <td><?php echo $row['amount']; ?></td>
             <td><?php echo $row['time']; ?></td>
+            <td><a href="delete.php?email=<?php echo $row['email']; ?>" class="btn btn-danger">Delete</a></td>
           </tr>
         <?php } ?>
       </tbody>

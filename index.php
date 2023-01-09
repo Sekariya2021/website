@@ -16,13 +16,14 @@
       <form action="auth.php" method="post">
         <div class="form-group">
           <label>Username</label>
-          <input type="text" class="form-control" id ="user" name  = "user" placeholder="Enter username">
+          <input type="text" class="form-control" id ="username" name  = "username" placeholder="Enter username">
         </div>
         <div class="form-group">
           <label>Password</label>
-          <input type="password" class="form-control" id ="pass" name  = "pass" placeholder="Enter password">
+          <input type="password" class="form-control" id ="password" name  = "password" placeholder="Enter password">
         </div>
         <button type="submit" class="btn btn-primary" id="btn">Submit</button>
+        <a href="register.php" class="btn btn-primary">Adminsplace</a>
       </form>
     </div>
   </div>

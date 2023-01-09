@@ -66,7 +66,7 @@
 </html>
 
 <?php
-if (isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['email']) && isset($_POST['amount']) && isset($_POST['time'])) {
+if (isset($_POST['firstname'], $_POST['lastname'], $_POST['email'], $_POST['amount'], $_POST['time'])) {
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $email = $_POST['email'];
@@ -81,7 +81,7 @@ if (isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['ema
         'time' => $time
     );
  
-    $url = 'http://localhost:15000/create';
+    $url = 'http://localhost:8080/create';
     $options = array(
         'http' => array(
             'method'  => 'POST',
@@ -92,7 +92,11 @@ if (isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['ema
     );
  
     $context  = stream_context_create( $options );
-    $result = file_get_contents( $url, false, $context );
-    $response = json_decode( $result );
+    $result = @file_get_contents( $url, false, $context );
+    if ($result === false) {
+        // error handling
+    } else {
+        $response = json_decode( $result );
+    }
 }
 ?>
