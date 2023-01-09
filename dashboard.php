@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bootstrap Table with Filtering Search Bar</title>
+  <title>Dashboard</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -22,7 +22,7 @@
 
 <body style="background-image: url('vakantiepark.png');background-size: 80%;background-repeat: no-repeat;background-position: center;background-position-y: 30px;">
   <div class="container">
-    <h2>Bootstrap Table with Filtering Search Bar</h2>
+    <h2>Dashboard</h2>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
     <a href="reservation.php" class="btn btn-primary">Reserveren</a>
     <a href="parkeren.php" class="btn btn-primary">Parkeren</a>
