@@ -26,6 +26,7 @@
     <h2>Bootstrap Table with Filtering Search Bar</h2>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
     <a href="reservation.php" class="btn btn-primary">Reserveren</a>
+    <a href="parkeren.php" class="btn btn-primary">Parkeren</a>
   </br>
   </br>
     <table class="table table-bordered table-striped" id="myTable">
