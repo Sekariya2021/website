@@ -15,8 +15,8 @@
     }
 
     // escape variables for security
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    $username = mysqli_real_escape_string($conn, $_POST['user']);
+    $password = mysqli_real_escape_string($conn, $_POST['pass']);
 
     // check if username exists
     $sql_check = "SELECT username FROM users WHERE username='$username'";
@@ -34,7 +34,6 @@
         }
         // check if password is correct
         if (password_verify($password, $hashed_password)) {
-            echo "Login successful";
             header("Location: dashboard.php");
         } else {
             echo "Password incorrect. Please try again";

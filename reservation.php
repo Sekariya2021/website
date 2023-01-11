@@ -97,6 +97,7 @@ if (isset($_POST['firstname'], $_POST['lastname'], $_POST['email'], $_POST['amou
         // error handling
     } else {
         $response = json_decode( $result );
+        echo " Reservation is placed.";
     }
 }
 ?>

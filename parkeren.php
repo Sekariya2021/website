@@ -58,6 +58,7 @@ if (isset($_POST['kenteken'])) {
         $context  = stream_context_create( $options );
         $result = file_get_contents( $url, false, $context );
         $response = json_decode( $result );
+        echo " Kentekenen is toegevoegd.";
     } else {
         echo 'The kenteken should have 6 characters';
     }
