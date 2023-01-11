@@ -34,7 +34,7 @@
         }
         // check if password is correct
         if (password_verify($password, $hashed_password)) {
-            header("Location: dashboard.php");
+            header("Location: https://reserveringsysteemfonteyn.azurewebsites.net/dashboard.php");
         } else {
             echo "Password incorrect. Please try again";
         }
